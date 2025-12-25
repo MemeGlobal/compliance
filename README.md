@@ -4,21 +4,30 @@ This repository contains compliance documentation and requirements for the **Tri
 
 ## Overview
 
-This repository serves as a centralized knowledge base for compliance requirements, evidence, and documentation related to the Trinity Audio Platform. It includes detailed requirements mapping, accessibility compliance, security documentation, and vendor questionnaire responses.
+This repository serves as a centralized knowledge base for compliance requirements, evidence, and documentation related to the Trinity Audio Platform. The core knowledge base (`compliance_knowledge_base.md`) contains normalized compliance statements extracted from source questionnaires (`compliance.yml` and `FORTUNE_questionnaire_QA.md`). All statements are tagged using a controlled taxonomy (`controlled_tag_taxonomy.md`) to ensure consistency and enable reliable retrieval.
 
 ## Repository Structure
 
 ### Core Files
 
-- **`compliance.yml`** - Structured YAML file containing all compliance requirements with:
+- **`compliance_knowledge_base.md`** - **Primary knowledge base** containing the current list of compliance statements. Each statement includes:
+  - Statement ID and description
+  - Controlled tags for categorization
+  - Implementation status
+  - Source reference
+  - Additional notes
+
+- **`controlled_tag_taxonomy.md`** - **Helper file** defining the controlled vocabulary of tags used for categorizing compliance statements. This taxonomy ensures consistent tagging across all statements and must be referenced when creating new statements.
+
+### Questionnaire Files
+
+- **`compliance.yml`** - Questionnaire containing compliance requirements with:
   - Requirement IDs and themes
   - Priority scores and MVP status
   - Fit/Gap analysis
   - Compliance evidence
   - Cost information
   - Notes and implementation details
-
-- **`compliance_knowledge_base.md`** - Confluence-ready table rows extracted from `compliance.yml` and Publisher Questionnaire, organized with controlled tags for easy import into knowledge base systems.
 
 - **`FORTUNE_questionnaire_QA.md`** - Q&A responses to the FORTUNE Vendor/Supplier Information Security Due Diligence Questionnaire, covering:
   - Business and server locations
@@ -27,7 +36,7 @@ This repository serves as a centralized knowledge base for compliance requiremen
   - GDPR, CCPA, and other compliance frameworks
   - Security measures and certifications
 
-- **`controlled_tag_taxonomy.md`** - Controlled vocabulary of tags used for categorizing compliance statements and requirements.
+### Supporting Files
 
 - **`confluence_knowledge_base_table_template.md`** - Template for Confluence knowledge base table structure.
 
@@ -72,18 +81,18 @@ The compliance documentation covers the following areas:
 ## Usage
 
 ### For Compliance Teams
-- Review `compliance.yml` for detailed requirement mappings
-- Use `compliance_knowledge_base.md` for Confluence imports
-- Reference `FORTUNE_questionnaire_QA.md` for vendor questionnaire responses
+- **Primary reference**: `compliance_knowledge_base.md` - Contains all normalized compliance statements ready for Confluence imports
+- Review `compliance.yml` and `FORTUNE_questionnaire_QA.md` as source questionnaires
+- Use `controlled_tag_taxonomy.md` when creating or updating statements to ensure consistent tagging
 
 ### For Technical Teams
-- Reference `compliance.yml` for implementation requirements
-- Check fit/gap analysis for feature status
-- Review compliance evidence for verification
+- Reference `compliance_knowledge_base.md` for the current list of compliance statements and their status
+- Review source questionnaires (`compliance.yml`, `FORTUNE_questionnaire_QA.md`) for detailed requirement mappings and evidence
 
-### For Documentation
-- Use `controlled_tag_taxonomy.md` for consistent tagging
-- Follow `confluence_knowledge_base_table_template.md` for table structure
+### For Documentation Teams
+- **Always reference** `controlled_tag_taxonomy.md` before creating new statements - tags must be selected from this taxonomy only
+- Use `compliance_knowledge_base.md` as the source of truth for all compliance statements
+- Follow `confluence_knowledge_base_table_template.md` for table structure when importing to Confluence
 
 ## Document Information
 
