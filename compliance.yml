@@ -1,0 +1,597 @@
+compliance_doc:
+  title: "Text-to-Speech Platform Compliance – Trinity Audio"
+  version: "2025-10"
+  author: "Guy Gilad"
+  system: "Trinity Audio Platform"
+  last_reviewed: "2025-10-16"
+  compliance_scope: ["TTS Functions", "Accessibility", "Technical Integration", "User Experience", "APIs & Deployment", "Cloud Tooling & DR", "Administration", "Security", "Scalability & Performance", "General Technical Requirements"]
+  notes: "Normalized from 'Requirements and Scorecard - Text to Speech_Trinity Audio - 82 - filled.xlsx - Requirements.pdf'"
+requirements:
+  - id: "1.01"
+    theme: "TTS Functions"
+    user_role: "End User"
+    feature_description: "Support playback of article content (e.g., press releases, grantee news)."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Built-in playback for article content in all plans."
+    cost: "Included in all plans"
+    notes: ""
+  - id: "1.02"
+    theme: "TTS Functions"
+    user_role: "End User"
+    feature_description: "Inline audio controls (play, pause, stop, fast forward) embedded on the page."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Embedded player with standard transport controls; no external redirect required."
+    cost: "Included in all plans"
+    notes: ""
+  - id: "1.03"
+    theme: "TTS Functions"
+    user_role: "End User"
+    feature_description: "Users are not redirected to a new page or external player."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Player runs inline on the host page."
+    cost: "Included in all plans"
+    notes: ""
+  - id: "1.04"
+    theme: "TTS Functions"
+    user_role: "End User"
+    feature_description: "Support for multiple languages."
+    priority_label: "Low"
+    priority_score: 3
+    required_for_mvp: false
+    fit_gap: "FIT"
+    score: 3
+    compliance_evidence: "Multi-language playback supported. Translating a story counts as a credit."
+    cost: "Included in all plans"
+    notes: ""
+  - id: "1.05"
+    theme: "TTS Functions"
+    user_role: "End User"
+    feature_description: "Mobile device platform compatibility."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Responsive player compatible across mobile platforms."
+    cost: "Included in all plans"
+    notes: ""
+  - id: "1.06"
+    theme: "TTS Functions"
+    user_role: "End User"
+    feature_description: "Natural-sounding voices."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "High-quality voices available. Cloned and GenAI voices start at the Publisher plan tier."
+    cost: "Included; advanced voices available from Publisher plan"
+    notes: ""
+  - id: "2.01"
+    theme: "Accessibility"
+    user_role: "End User"
+    feature_description: "Comply with WCAG 2.1 AA standards."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Player conforms to WCAG 2.1 AA and Section 508; independently verified via VPAT v2.4 (Oct 19, 2023). Supports screen readers (JAWS, VoiceOver), full keyboard navigation, visible focus indicators, high-contrast elements, and ARIA-labeled controls. Periodic retesting with aXe and Lighthouse."
+    cost: "Included"
+    notes: "VPAT available on request"
+  - id: "2.02"
+    theme: "Accessibility"
+    user_role: "End User"
+    feature_description: "Fully operable via keyboard navigation."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Full keyboard support (Tab, Enter, Space) with visible focus states."
+    cost: "Included"
+    notes: ""
+  - id: "2.03"
+    theme: "Accessibility"
+    user_role: "End User"
+    feature_description: "Screen reader compatibility confirmed."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Compatible with JAWS and VoiceOver; proper Name/Role/Value via WAI-ARIA; documented in VPAT v2.4."
+    cost: "Included"
+    notes: "Tested with WAVE, aXe, Lighthouse"
+  - id: "2.04"
+    theme: "Accessibility"
+    user_role: "End User"
+    feature_description: "Adjustable playback speed and voice pitch for user preference."
+    priority_label: "Medium"
+    priority_score: 5
+    required_for_mvp: false
+    fit_gap: "GAP"
+    score: 0
+    compliance_evidence: "End users can change speed; voice pitch is configurable only by the client/admin, not end users."
+    cost: "Included"
+    notes: ""
+  - id: "2.05"
+    theme: "Accessibility"
+    user_role: "End User"
+    feature_description: "Ability to play the article as a background application."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Background playback supported."
+    cost: "Included"
+    notes: ""
+  - id: "3.01"
+    theme: "Technical Integration"
+    user_role: "Administrator"
+    feature_description: "Compatible with existing CMS (CrownPeak) and frontend frameworks."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Integrates wherever a small JS snippet can be added (WordPress, Drupal, AEM, Sitecore, Webflow/Wix via custom code). For CrownPeak, requires ability to inject code in global header/footer or template include."
+    cost: "None beyond implementation effort"
+    notes: "Requires stable DOM container and permission to add a site-wide script"
+  - id: "3.02"
+    theme: "Technical Integration"
+    user_role: "Administrator"
+    feature_description: "Lightweight script that does not degrade page performance."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Asynchronous player script (<50 KB gzipped) that does not block rendering or impact Core Web Vitals; audio processing handled on Trinity cloud infrastructure."
+    cost: "Included"
+    notes: ""
+  - id: "3.03"
+    theme: "Technical Integration"
+    user_role: "Administrator"
+    feature_description: "Fallback behavior if TTS fails to load or browser does not support it."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Graceful degradation: player element is hidden if script fails or Web Audio API is unsupported; page remains stable and readable."
+    cost: "Included"
+    notes: ""
+  - id: "4.01"
+    theme: "User Experience"
+    user_role: "End User"
+    feature_description: "Clear visual indicators for TTS availability."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Player controls clearly indicate when audio is available."
+    cost: "Included"
+    notes: ""
+  - id: "4.02"
+    theme: "User Experience"
+    user_role: "End User"
+    feature_description: "Option to toggle TTS on/off per user session."
+    priority_label: "Medium"
+    priority_score: 5
+    required_for_mvp: false
+    fit_gap: "FIT"
+    score: 5
+    compliance_evidence: "Session-level control to enable/disable playback."
+    cost: "Included"
+    notes: ""
+  - id: "4.03"
+    theme: "User Experience"
+    user_role: "End User"
+    feature_description: "No interference with other page elements or media."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Embedded player is non-intrusive and coexists with other page components."
+    cost: "Included"
+    notes: ""
+  - id: "4.04"
+    theme: "Frontend/UI Layer"
+    user_role: "End User"
+    feature_description: "Mobile-friendly interface."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Responsive UI optimized for mobile."
+    cost: "Included"
+    notes: ""
+  - id: "4.05"
+    theme: "Frontend/UI Layer"
+    user_role: "End User"
+    feature_description: "Provides 'Play Text' button and synchronized highlighting."
+    priority_label: "Medium"
+    priority_score: 5
+    required_for_mvp: false
+    fit_gap: "FIT"
+    score: 5
+    compliance_evidence: "Player offers play action and text highlighting synchronized with audio."
+    cost: "Included"
+    notes: ""
+  - id: "5.01"
+    theme: "APIs & Deployment"
+    user_role: "IT Staff"
+    feature_description: "Document supported technologies (REST, SOAP, JSON, Atom, etc.)."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "RESTful APIs with JSON over HTTPS for auth, analytics, and content management. SOAP/Atom not supported."
+    cost: "Included"
+    notes: ""
+  - id: "5.02"
+    theme: "APIs & Deployment"
+    user_role: "IT Staff"
+    feature_description: "Document API controls: token authorization, throttling, quota limits."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "OAuth2/Bearer tokens; role-based access; enforced rate limits and quotas; monitoring with alerts for anomalies."
+    cost: "Included"
+    notes: ""
+  - id: "5.03"
+    theme: "APIs & Deployment"
+    user_role: "IT Staff"
+    feature_description: "Ensure TLS 1.2+."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "All endpoints enforce TLS 1.2+ with ACM-managed certificates; older protocols disabled."
+    cost: "Included"
+    notes: ""
+  - id: "5.04"
+    theme: "Deployment"
+    user_role: "IT Staff/Administrator"
+    feature_description: "Cloud-hosted vs. on-prem deployment options."
+    priority_label: "Critical"
+    priority_score: 9
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 9
+    compliance_evidence: "Fully managed SaaS hosted in AWS (multi-region). On-premise not offered due to managed-service dependencies."
+    cost: "Included"
+    notes: ""
+  - id: "5.05"
+    theme: "Deployment"
+    user_role: "IT Staff"
+    feature_description: "Document rollback procedure."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "CI/CD with immutable version tags; automated rollback typically completes within minutes."
+    cost: "Included"
+    notes: ""
+  - id: "5.06"
+    theme: "Deployment"
+    user_role: "IT Staff"
+    feature_description: "Document upgrade procedure for plugin/module updates."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Hosted script updates automatically; CMS plugins (e.g., WordPress) update via standard admin flows; backward-compatible and pre-tested."
+    cost: "Included"
+    notes: ""
+  - id: "5.07"
+    theme: "Cloud Tooling & DR"
+    user_role: "IT Staff"
+    feature_description: "Document disaster recovery, backup, load balancing, security; guaranteed uptime."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "AWS-hosted with multi-region redundancy, load balancing, auto-scaling, daily automated backups, distributed failover, encrypted storage, IAM isolation, monitoring; 99.9% uptime SLA."
+    cost: "Included"
+    notes: "SLA metrics available to enterprise customers"
+  - id: "5.08"
+    theme: "Integration Features"
+    user_role: "IT Staff"
+    feature_description: "Integrate with CMS products out of the box or via prepackaged snippets."
+    priority_label: "Medium"
+    priority_score: 5
+    required_for_mvp: false
+    fit_gap: "FIT"
+    score: 5
+    compliance_evidence: "Ready-to-use snippets and plugins for WordPress, Wix, Webflow; for CrownPeak/AEM, integrate via a single JS snippet in the global template."
+    cost: "Included"
+    notes: ""
+  - id: "6.01"
+    theme: "Administration"
+    user_role: "Administrator"
+    feature_description: "Dashboard with data usage and analytics."
+    priority_label: "Medium"
+    priority_score: 5
+    required_for_mvp: false
+    fit_gap: "FIT"
+    score: 5
+    compliance_evidence: "Admin dashboard provides usage metrics and analytics."
+    cost: "Included"
+    notes: ""
+  - id: "6.02"
+    theme: "Administration"
+    user_role: "Administrator"
+    feature_description: "Ability to integrate with Google Analytics (if no native dashboard)."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Supports integration with Google Analytics."
+    cost: "Included"
+    notes: ""
+  - id: "7.01"
+    theme: "Security"
+    user_role: "Security/IT"
+    feature_description: "Ensure security and privacy of DB data; encrypted; no local caching; encrypted transfers."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Sensitive data encrypted at rest (AES-256) and in transit (TLS 1.2+). No local device caching. DB access restricted via IAM and VPC policies."
+    cost: "Included"
+    notes: ""
+  - id: "7.02"
+    theme: "Security"
+    user_role: "Security/IT"
+    feature_description: "Guarantee TLS v1.2+ for all connections."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "TLS 1.2+ enforced across clients/APIs/servers; ACM-managed certs; legacy protocols disabled."
+    cost: "Included"
+    notes: ""
+  - id: "7.03"
+    theme: "Security"
+    user_role: "Security/IT"
+    feature_description: "Ensure non-critical ports are not exposed."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Behind AWS-managed load balancers and API gateways; only HTTPS (443) exposed externally; security groups and NACLs block non-essential ports."
+    cost: "Included"
+    notes: ""
+  - id: "7.04"
+    theme: "Security"
+    user_role: "Security/IT"
+    feature_description: "Separate interfaces and databases to support load balancing and contain security issues."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Multi-tier architecture with segregated subnets for web/API, app, and DB; protected by AWS Load Balancer and WAF; enables scaling, fault isolation, and defense-in-depth."
+    cost: "Included"
+    notes: ""
+  - id: "7.05"
+    theme: "Security"
+    user_role: "Administrator"
+    feature_description: "Okta 2.0 SSO compatibility and MFA for admin dashboard."
+    priority_label: "Medium"
+    priority_score: 5
+    required_for_mvp: false
+    fit_gap: "GAP"
+    score: 0
+    compliance_evidence: "Not currently supported as described."
+    cost: ""
+    notes: ""
+  - id: "7.06"
+    theme: "Security"
+    user_role: "Administrator"
+    feature_description: "Variable access depending on user role."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Two user roles: Account Owner and Standard User. Supports content-level access restrictions."
+    cost: "Included"
+    notes: ""
+  - id: "7.07"
+    theme: "Security"
+    user_role: "Security/IT"
+    feature_description: "Enforce cloud-based security capabilities."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Uses AWS-native controls (IAM, WAF, CloudTrail, GuardDuty) for intrusion detection and continuous monitoring; least-privilege access; routine audits."
+    cost: "Included"
+    notes: ""
+  - id: "7.08"
+    theme: "Security Architecture"
+    user_role: "Security/IT"
+    feature_description: "Describe security architecture and access to content (definition, authentication, implementation)."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Zero-trust cloud model with multi-layer protection. Authentication via secure API tokens or SSO (SAML 2.0). All access logged and audited. Data stored in encrypted databases within private VPC subnets. Mutual TLS between microservices. CI/CD with vulnerability scanning and dependency checks prior to deployment."
+    cost: "Included"
+    notes: ""
+  - id: "8.01"
+    theme: "Scalability & Performance"
+    user_role: "IT/Operations"
+    feature_description: "Support reasonable concurrent consumers and contributors."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Multi-tenant SaaS designed for elastic concurrency. Consumer traffic served via CDN and stateless autoscaling services; author/admin traffic on separate autoscaling pools. Handles burst traffic without customer action."
+    cost: "Included"
+    notes: ""
+  - id: "8.02"
+    theme: "Scalability & Performance"
+    user_role: "IT/Operations"
+    feature_description: "Document caching capabilities."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "CDN edge caching for player JS/CSS and audio streams with versioned, immutable assets; ETag and content hashing. API short-TTL caching for read-heavy endpoints. Static assets use long TTL; sensitive responses set no-store."
+    cost: "Included"
+    notes: ""
+  - id: "8.03"
+    theme: "Scalability & Performance"
+    user_role: "IT/Operations"
+    feature_description: "Support clustering for delivery and authoring interfaces."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "All runtime tiers are stateless clusters behind load balancers; data stores use managed services with replicas; streaming/analytics pipelines partitioned for horizontal scale."
+    cost: "Included"
+    notes: ""
+  - id: "8.04"
+    theme: "Scalability & Performance"
+    user_role: "IT/Operations"
+    feature_description: "Performance-enhancing features: caching, clustering, load balancing, replication."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "CDN + API caching, multi-AZ clusters behind L7 load balancers, autoscaling on CPU/QPS/latency, multi-AZ DB replicas, cross-region durable object storage, async queues for spikes."
+    cost: "Included"
+    notes: ""
+  - id: "8.05"
+    theme: "Scalability & Performance"
+    user_role: "IT/Operations"
+    feature_description: "Specify maximum number of pages/components per server."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Player served from CDN; no fixed per-server limit. Coverage scales to any number of pages; backend capacity handled by CDN and autoscaling services."
+    cost: "Included"
+    notes: ""
+  - id: "8.06"
+    theme: "Scalability & Performance"
+    user_role: "IT/Operations"
+    feature_description: "Specify maximum number of interoperating servers."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Horizontally scalable with dynamic instance counts across autoscaling groups and regions; expanded based on demand and SLOs."
+    cost: "Included"
+    notes: ""
+  - id: "9.01"
+    theme: "General Technical Requirements"
+    user_role: "IT/Frontend"
+    feature_description: "Provide support for HTML5."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "HTML5-compliant player and integrations."
+    cost: "Included"
+    notes: ""
+  - id: "9.02"
+    theme: "General Technical Requirements"
+    user_role: "IT/Frontend"
+    feature_description: "Support all major browsers (current and two previous versions)."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Compatibility policy covers current and two prior versions of major browsers."
+    cost: "Included"
+    notes: ""
+  - id: "9.03"
+    theme: "General Technical Requirements"
+    user_role: "End User"
+    feature_description: "Access from any internet-connected device (laptops, PCs, tablets, smartphones)."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Web-based delivery and responsive UI support a wide range of devices."
+    cost: "Included"
+    notes: ""
+  - id: "9.04"
+    theme: "General Technical Requirements"
+    user_role: "Administrator"
+    feature_description: "Have multiple content pages/areas of the admin panel open simultaneously."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "Admin UX supports concurrent multi-tab/multi-page workflows."
+    cost: "Included"
+    notes: ""
+  - id: "9.05"
+    theme: "General Technical Requirements"
+    user_role: "End User"
+    feature_description: "Accommodate at least 50 concurrent (actively playing) users via the web; define concurrency."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "CDN-backed delivery and horizontal scaling; 50 active listeners is trivial. Concurrency defined as simultaneous active listeners."
+    cost: "Included"
+    notes: ""
+  - id: "9.06"
+    theme: "General Technical Requirements"
+    user_role: "End User"
+    feature_description: "Prompt, usable response time (e.g., field validation <25 ms, except under poor connectivity)."
+    priority_label: "High"
+    priority_score: 7
+    required_for_mvp: true
+    fit_gap: "FIT"
+    score: 7
+    compliance_evidence: "System engineered for low-latency interactions; exceptions only under low-grade connectivity."
+    cost: "Included"
+    notes: ""
