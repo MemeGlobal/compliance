@@ -36,10 +36,6 @@ This repository serves as a centralized knowledge base for compliance requiremen
   - GDPR, CCPA, and other compliance frameworks
   - Security measures and certifications
 
-### Supporting Files
-
-- **`confluence_knowledge_base_table_template.md`** - Template for Confluence knowledge base table structure.
-
 ## Compliance Scope
 
 The compliance documentation covers the following areas:
@@ -91,8 +87,7 @@ The compliance documentation covers the following areas:
 
 ### For Documentation Teams
 - **Always reference** `controlled_tag_taxonomy.md` before creating new statements - tags must be selected from this taxonomy only
-- Use `compliance_knowledge_base.md` as the source of truth for all compliance statements
-- Follow `confluence_knowledge_base_table_template.md` for table structure when importing to Confluence
+- Use `compliance_knowledge_base.md` as the source of truth for all compliance statements - it contains the table structure and is ready for Confluence imports
 
 ## Document Information
 
