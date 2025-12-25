@@ -76,6 +76,20 @@ The compliance documentation covers the following areas:
 
 ## Usage
 
+### Cursor Commands
+
+- **`/extract file-with-compliance-insights`** - Extracts new compliance statements from a file containing compliance insights and adds them to the knowledge base.
+
+- **`/analyze contract`** - Analyzes a contract to verify coverage against existing compliance statements. Identifies coverage gaps that can be used to generate an insights file.
+
+### Workflow
+
+1. **Add new statements**: Use `/extract file-with-compliance-insights` with a file containing compliance requirements or insights to add new statements to the knowledge base.
+
+2. **Verify coverage**: Use `/analyze contract` to check if a contract meets all compliance requirements. The analysis identifies gaps in coverage.
+
+3. **Generate insights**: Coverage gaps from contract analysis can be exported to create a new insights file, which can then be processed with `/extract` to add missing statements.
+
 ### For Compliance Teams
 - **Primary reference**: `compliance_knowledge_base.md` - Contains all normalized compliance statements ready for Confluence imports
 - Review `compliance.yml` and `FORTUNE_questionnaire_QA.md` as source questionnaires
